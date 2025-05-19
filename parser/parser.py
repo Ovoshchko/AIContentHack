@@ -19,7 +19,7 @@ class ImageParser:
     @staticmethod
     def download_image(link):
         response = ImageParser.get_page_content(link)
-        return Image.open(io.BytesIO(response))
+        return Image.open(io.BytesIO(response.content))
 
     @staticmethod
     def get_page_content(link):
