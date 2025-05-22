@@ -1,0 +1,7 @@
+requests
+bs4
+Pillow
+fastapi[all]  # This includes all optional dependencies including UploadFile handling
+uvicorn
+python-multipart  # For parsing form data including file uploads
+openai
