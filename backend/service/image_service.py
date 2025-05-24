@@ -25,19 +25,18 @@ class ImageService:
                 image_byte_arr = image_byte_arr.getvalue()
                 base64_image = base64.b64encode(image_byte_arr).decode("utf-8")
                 base64_images.append(base64_image)
-            
-            # Always include result.jpg in the response
-            try:
-                result_path = "/Users/m/dev/hack/backend/result.jpg"
-                if not os.path.exists(result_path):
-                    logger.warning(f"result.jpg not found at {result_path}")
-                else:
-                    with open(result_path, "rb") as img_file:
-                        result_image = base64.b64encode(img_file.read()).decode("utf-8")
-                        base64_images.append(result_image)
-                        logger.info(f"Successfully added result.jpg to the response. Images count: {len(base64_images)}")
-            except Exception as e:
-                logger.error(f"Error adding result.jpg to response: {str(e)}")
+
+            # try:
+            #     result_path = "backend/result.jpg"
+            #     if not os.path.exists(result_path):
+            #         logger.warning(f"result.jpg not found at {result_path}")
+            #     else:
+            #         with open(result_path, "rb") as img_file:
+            #             result_image = base64.b64encode(img_file.read()).decode("utf-8")
+            #             base64_images.append(result_image)
+            #             logger.info(f"Successfully added result.jpg to the response. Images count: {len(base64_images)}")
+            # except Exception as e:
+            #     logger.error(f"Error adding result.jpg to response: {str(e)}")
 
             logger.info("Successfully processed images")
             return base64_images
